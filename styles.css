@@ -1,0 +1,298 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #131720;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Ensure the body takes at least full viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    color: white;
+}
+
+button {
+    float: right;
+    align-items: end;
+}
+
+/* Top Navigation */
+.top-nav {
+    background-color: #131720;
+    overflow: hidden;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.top-nav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.top-nav .searcher {
+    float: right;
+}
+
+form {
+    background-color: #151f30;
+    width: 300px;
+    height: 43px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+}
+
+input {
+    all: unset;
+    font: 20px system-ui;
+    color: #fff;
+    height: 100px;
+    width: 100px;
+    padding: 6px 9px;
+}
+
+.thumbnail {
+    height: 350px;
+    width: 280px;
+    border-radius: 19px;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px 10px;
+}
+
+.card {
+    border-radius: 19px;
+    padding: 15px;
+    text-align: center;
+    background-color: #151f30;
+}
+
+.centered {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header {
+    border-radius: 19px;
+    fill-opacity: inherit;
+    box-sizing: content-box;
+    box-shadow: inset;
+}
+
+.very-top {
+    background-color: #151f30;
+}
+
+.very-top a {
+    float: left;
+    display: flex;
+    text-decoration: none;
+    padding-left: 4px;
+    width: 25%;
+    height: 45px;
+    color: #fff;
+    font-weight: large;
+    border-radius: 8px;
+    padding-top: 0.8em;
+    padding-left: 3em;
+}
+
+.very-top a:hover {
+    font-size: larger;
+    position: static;
+}
+
+/* Menu Dashboard */
+#outer-list {
+    border: none;
+    float: left;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 30px;
+    opacity: 1;
+    width: 100%;
+    background-color: #151f30;
+    list-style-type: none;
+    border-radius: 15px;
+    position: sticky;
+    z-index: 10000;
+}
+
+#outer-list a {
+    border: none;
+    text-decoration: none;
+    font-family: sans-serif;
+    padding-left: 0.5em;
+    cursor: pointer;
+    align-items: center;
+    padding-right: 50px;
+    color: #fff;
+}
+
+#hidden-content1,
+#hidden-content2,
+#hidden-content3 {
+    display: none;
+}
+
+#outer-list {
+    font-size: large;
+}
+
+#outer-list a:hover {
+    font-size: small;
+    color: cyan;
+    background-color: #000;
+}
+
+/* Hide all inner lists by default */
+#outer-list ul {
+    display: none;
+    position: absolute; /* Positioning the inner lists absolutely for a dropdown effect */
+    background-color: #151f30; /* Background color to make them distinct */
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+}
+
+/* Show the inner list on hover */
+#outer-list li:hover ul {
+    display: block;
+    border: none;
+}
+
+/* Style the parent list items to look like a menu */
+#outer-list li {
+    position: relative; /* Necessary for the dropdown effect */
+    list-style: none;
+    padding: 5px;
+    background-color: #151f30;
+    margin: 1px 0;
+    border-radius: 5px;
+}
+
+/* Style the links */
+#outer-list li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 4px;
+}
+
+/* Additional styling for better visual effect */
+#outer-list li:hover {
+    background-color: #151f30; /* Change background color on hover */
+}
+
+#outer-list ul li {
+    padding: 1px 0;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    position: relative;
+    top: 85vh;
+    bottom: 0;
+    background: linear-gradient(to right, #11301d, #5c1e09);
+    color: #fff;
+    padding: 20px 0 1px;
+    font-size: 13px;
+    line-height: 5px;
+}
+
+.foo {
+    align-content: center;
+    justify-content: center;
+    padding-left: 30%;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    .top-nav a, 
+    .very-top a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .top-nav, 
+    .very-top {
+        text-align: center;
+    }
+
+    .column {
+        width: 100%;
+        padding: 0;
+    }
+
+    .thumbnail {
+        height: auto;
+        width: 100%;
+    }
+
+    .foo {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    #outer-list {
+        display: block;
+        font-size: 20px;
+    }
+
+    #outer-list li {
+        margin: 5px 0;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    input {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .top-nav a,
+    .very-top a {
+        font-size: 1rem;
+    }
+
+    .thumbnail {
+        height: auto;
+        width: 100%;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .foo {
+        padding-left: 0;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    footer {
+        padding: 10px 0 5px;
+        font-size: 12px;
+        line-height: 4px;
+    }
+}
