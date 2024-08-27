@@ -48,9 +48,10 @@ function returnMovies(url) {
 
                 // Add event listener to make the movie clickable
                 div_card.addEventListener('click', () => {
-                    // Redirect to a new link based on the movie's title
-                    window.location.href = `https://movietree.vercel.app/${encodeURIComponent(element.title)}`;
+                    window.location.href = `details.html?id=${element.id}`;
+                    //alert(`You will not be able to download that`)
                 });
+
             });
         });
 }
