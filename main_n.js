@@ -48,8 +48,8 @@ function returnMovies(url) {
 
                 // Add event listener to make the movie clickable
                 div_card.addEventListener('click', () => {
-                    alert(`Downloading ${element.title} is not implemented yet!`); 
-                    // You can redirect to a new page with more details or open a modal here
+                    //alert(`Downloading ${element.title} is not implemented yet!`); 
+                    window.location.href = `https://movietree.vercel.app/${element.title}`
                     // For example: window.location.href = `details.html?id=${element.id}`;
                 });
             });
