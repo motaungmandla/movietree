@@ -48,7 +48,7 @@ function returnMovies(url) {
 
                 // Add event listener to make the movie clickable
                 div_card.addEventListener('click', () => {
-                    alert(`You clicked on ${element.title}!`); 
+                    alert(`Talk to Mandla to access ${element.title}!`); 
                     // You can redirect to a new page with more details or open a modal here
                     // For example: window.location.href = `details.html?id=${element.id}`;
                 });
