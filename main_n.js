@@ -48,8 +48,8 @@ function returnMovies(url) {
 
                 // Add event listener to make the movie clickable
                 div_card.addEventListener('click', () => {
-                    window.location.href = `details.html?id=${element.id}`;
-                    //alert(`You will not be able to download that`)
+                    //window.location.href = `details.html?id=${element.id}`;
+                    alert(`Contact Mandla about ${element.title`);
                 });
 
             });
