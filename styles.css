@@ -227,3 +227,50 @@ body.light-mode {
     background-color: #f4f4f4;
     color: #333;
 }
+
+/* Genre Filter Dropdown */
+.genre-filter {
+    position: relative;
+    display: inline-block;
+}
+
+#genre-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu when the button is clicked */
+#genre-button:focus + .dropdown-menu,
+#genre-button:hover + .dropdown-menu {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .dropdown-menu {
+        width: 100%;
+    }
+}
