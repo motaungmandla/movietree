@@ -83,3 +83,24 @@ window.addEventListener('click', (e) => {
         modal.style.display = 'none';
     }
 });
+
+document.addEventListener('click', e => {
+    if (e.target.classList.contains('add-watchlist')) {
+        const id = e.target.dataset.id;
+        let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+        if (!watchlist.includes(id)) watchlist.push(id);
+        localStorage.setItem('watchlist', JSON.stringify(watchlist));
+        alert("Added to watchlist!");
+    }
+});
+
+document.getElementById('theme-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+});
+
+const swiper = new Swiper('.swiper-container', {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: { delay: 3000 },
+});
