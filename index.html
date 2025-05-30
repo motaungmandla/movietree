@@ -42,7 +42,23 @@
         <li><a href="#">Services</a></li>
     </ul>
 </header>
+<i class="fas fa-heart add-watchlist" data-id="${movie.id}"></i>
+<button id="theme-toggle">Change Theme</button>
 
+  <div class="genre-filter">
+    <button onclick="filterByGenre('action')">Action</button>
+    <button onclick="filterByGenre('comedy')">Comedy</button>
+</div>
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"  />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> 
+
+<!-- HTML -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <!-- Slides will go here -->
+    </div>
+</div>
 <!-- Hero Section -->
 <section class="hero-section">
     <h1>
