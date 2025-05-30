@@ -1,116 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Movietree.org - Movies & Series</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://kit.fontawesome.com/a076d05399.js"  crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movietree.org - Movies & Series</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js"  crossorigin="anonymous"></script>
 </head>
 <body>
 
 <!-- Top Navigation -->
 <nav class="top-nav">
-    <a href="#" class="logo">movietree.org</a>
-    <div class="searcher">
-        <form id="search-form">
-            <input type="search" id="query" placeholder="Search movies...">
-            <button type="submit">Go</button>
-        </form>
-    </div>
+  <a href="#" class="logo">movietree.org</a>
+  <div class="searcher">
+    <form id="search-form">
+      <input type="search" id="query" placeholder="Search movies...">
+      <button type="submit">Go</button>
+    </form>
+  </div>
 </nav>
 
 <!-- Main Menu -->
 <header class="main-menu-container">
-    <ul class="main-menu">
-        <li><a href="#">Home</a></li>
-        <li class="dropdown">
-            <a href="about.html">About</a>
-            <ul class="submenu">
-                <li><a href="#">Help</a></li>
-                <li><a href="#">More info</a></li>
-                <li><a href="https://motaungmandla.github.io"  target="_blank">Developer</a></li>
-                <li><a href="#">movietree.org</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#">Contact</a>
-            <ul class="submenu">
-                <li><a href="mailto:maxphin21@gmail.com">Send Email</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Services</a></li>
-    </ul>
+  <ul class="main-menu">
+    <li><a href="#">Home</a></li>
+    <li class="dropdown">
+      <a href="about.html">About</a>
+      <ul class="submenu">
+        <li><a href="#">Help</a></li>
+        <li><a href="#">More info</a></li>
+        <li><a href="https://motaungmandla.github.io"  target="_blank">Developer</a></li>
+        <li><a href="#">movietree.org</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#">Contact</a>
+      <ul class="submenu">
+        <li><a href="mailto:maxphin21@gmail.com">Send Email</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Services</a></li>
+  </ul>
 </header>
-<i class="fas fa-heart add-watchlist" data-id="${movie.id}"></i>
-<button id="theme-toggle">Change Theme</button>
 
-  <div class="genre-filter">
-    <button onclick="filterByGenre('action')">Action</button>
-    <button onclick="filterByGenre('comedy')">Comedy</button>
-</div>
-
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"  />
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> 
-
-<!-- HTML -->
-<div class="swiper-container">
-    <div class="swiper-wrapper">
-        <!-- Slides will go here -->
-    </div>
-</div>
 <!-- Hero Section -->
 <section class="hero-section">
-    <h1>
-        <span class="highlight-gold">Great </span>
-        <span class="highlight-magenta">Movies and Shows </span>
-        <span class="highlight-green">Enlighten Your Day!</span>
-    </h1>
+  <h1>
+    <span class="highlight-gold">Great </span>
+    <span class="highlight-magenta">Movies and Shows </span>
+    <span class="highlight-green">Enlighten Your Day!</span>
+  </h1>
 </section>
+
+<!-- Genre Filter Dropdown -->
+<div class="genre-filter">
+  <button id="genre-button">Filter by Genre</button>
+  <div id="genre-dropdown" class="dropdown-menu">
+    <a href="#" onclick="filterByGenre('28')">Action</a>
+    <a href="#" onclick="filterByGenre('35')">Comedy</a>
+    <a href="#" onclick="filterByGenre('18')">Drama</a>
+    <a href="#" onclick="filterByGenre('27')">Horror</a>
+    <a href="#" onclick="filterByGenre('878')">Science Fiction</a>
+    <a href="#" onclick="filterByGenre('10749')">Romance</a>
+    <a href="#" onclick="filterByGenre('12')">Adventure</a>
+  </div>
+</div>
+
+<!-- Optional: Theme Toggle Button -->
+<button id="theme-toggle">Toggle Theme</button>
 
 <!-- Movie Grid -->
 <section id="movie-grid" class="movie-grid"></section>
 
 <!-- Modal for Movie Details -->
 <div id="movie-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <img id="modal-poster" src="" alt="Poster">
-        <h2 id="modal-title"></h2>
-        <p id="modal-overview"></p>
-        <p><strong>Release Date:</strong> <span id="modal-date"></span></p>
-        <p><strong>Rating:</strong> <span id="modal-rating"></span></p>
-    </div>
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <img id="modal-poster" src="" alt="Poster">
+    <h2 id="modal-title"></h2>
+    <p id="modal-overview"></p>
+    <p><strong>Release Date:</strong> <span id="modal-date"></span></p>
+    <p><strong>Rating:</strong> <span id="modal-rating"></span></p>
+  </div>
 </div>
 
 <!-- Footer -->
 <footer class="footer">
-    <div class="footer-content">
-        <div class="footer-column">
-            <p>P.O. Roma 180</p>
-            <p>Roma, Lesotho</p>
-            <p>Email: zmmandla24@gmail.com</p>
-            <p>Phone: +266 6397 3129</p>
-        </div>
-        <div class="footer-column">
-            <h3>Links</h3>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="https://motaunginc.vercel.app">Services</a></li>   
-                <li><a href="https://motaungmandla.github.io">About  Us</a></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>Connect</h3>
-            <ul class="social_team">
-                <li><a href="https://discord.gg/dkb6cFR2"><i  class="fab fa-discord"></i> Discord Server</a></li>
-                <li><a href="https://www.facebook.com/profile.php?id=100022011589532"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                <li><a href="https://www.linkedin.com/in/mandla-motaung-5b5a88329/"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>   
-            </ul>
-        </div>
+  <div class="footer-content">
+    <div class="footer-column">
+      <p>P.O. Roma 180</p>
+      <p>Roma, Lesotho</p>
+      <p>Email: zmmandla24@gmail.com</p>
+      <p>Phone: +266 6397 3129</p>
     </div>
-    <p>&copy; Math tools 2024 - All Rights Reserved</p>
+    <div class="footer-column">
+      <h3>Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="https://motaunginc.vercel.app">Services</a></li>   
+        <li><a href="https://motaungmandla.github.io">About  Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Connect</h3>
+      <ul class="social_team">
+        <li><a href="https://discord.gg/dkb6cFR2"><i  class="fab fa-discord"></i> Discord Server</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=100022011589532"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+        <li><a href="https://www.linkedin.com/in/mandla-motaung-5b5a88329/"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>   
+      </ul>
+    </div>
+  </div>
+  <p>&copy; Math tools 2024 - All Rights Reserved</p>
 </footer>
 
 <!-- JavaScript -->
