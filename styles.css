@@ -274,3 +274,166 @@ body.light-mode {
         width: 100%;
     }
 }
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #1a1a1a; /* Dark background */
+  color: #fff; /* White text */
+  padding: 40px 0; /* Padding for spacing */
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* Padding for inner content */
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col-md-4 {
+  width: calc(33.33% - 20px); /* Three equal columns with spacing */
+  margin-right: 20px;
+}
+
+.col-md-4:last-child {
+  margin-right: 0; /* Remove right margin from the last column */
+}
+
+/* Heading Styles */
+h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Paragraph Styles */
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Links */
+a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #888; /* Hover effect for links */
+}
+
+/* Useful Links Section */
+.useful-links p {
+  margin-bottom: 10px;
+}
+
+.useful-links a {
+  display: block;
+  margin-top: 10px;
+}
+
+/* Find Us Section */
+.location_icon {
+  list-style: none;
+  padding: 0;
+}
+
+.location_icon li {
+  margin-bottom: 15px;
+}
+
+.location_icon i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/* News Letter Section */
+.news_form {
+  display: flex;
+  align-items: center;
+}
+
+.letter_form {
+  padding: 10px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+.submit {
+  padding: 10px 20px;
+  background-color: #6c5ce7; /* Purple button */
+  border: none;
+  border-radius: 0 5px 5px 0;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+  background-color: #5b4fae; /* Darker purple on hover */
+}
+
+.social_icon {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social_icon li {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.social_icon li:hover {
+  background-color: #6c5ce7; /* Purple hover effect */
+  color: #fff;
+}
+
+.social_icon i {
+  font-size: 20px;
+}
+
+/* Copyright Section */
+.copyright {
+  background-color: #1a1a1a;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.copyright a {
+  color: #fff;
+  text-decoration: underline;
+}
