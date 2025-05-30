@@ -114,7 +114,28 @@
   <p>&copy; Math tools 2024 - All Rights Reserved</p>
 </footer>
 
+  <style>
+body {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+</style>
+  
+<script>
+document.addEventListener('copy', function(e) {
+    e.preventDefault();
+    alert("Copying is not allowed.");
+});
+</script>
+  
 <!-- JavaScript -->
 <script src="main_n.js"></script>
+  <script>
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+</script>
 </body>
 </html>
