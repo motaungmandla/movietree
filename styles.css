@@ -222,3 +222,8 @@ body {
 .social_team i {
     margin-right: 8px;
 }
+
+body.light-mode {
+    background-color: #f4f4f4;
+    color: #333;
+}
