@@ -1,158 +1,360 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Movietree.org - Movies & Series</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</head>
-<body>
-
-<!-- Top Navigation -->
-<nav class="top-nav">
-  <a href="#" class="logo">movietree.org</a>
-  <div class="searcher">
-    <form id="search-form">
-      <input type="search" id="query" placeholder="Search movies...">
-      <button type="submit">Go</button>
-    </form>
-  </div>
-</nav>
-
-<!-- Main Menu -->
-<header class="main-menu-container">
-  <ul class="main-menu">
-    <li><a href="#">Home</a></li>
-    <li class="dropdown">
-      <a href="about.html">About</a>
-      <ul class="submenu">
-        <li><a href="#">Help</a></li>
-        <li><a href="#">More info</a></li>
-        <li><a href="https://motaungmandla.github.io" target="_blank">Developer</a></li>
-        <li><a href="#">movietree.org</a></li>
-      </ul>
-    </li>
-    <li class="dropdown">
-      <a href="#">Contact</a>
-      <ul class="submenu">
-        <li><a href="mailto:maxphin21@gmail.com">Send Email</a></li>
-      </ul>
-    </li>
-    <li><a href="#">Services</a></li>
-  </ul>
-</header>
-
-<!-- Hero Section -->
-<section class="hero-section">
-  <h1>
-    <span class="highlight-gold">Great </span>
-    <span class="highlight-magenta">Movies and Shows </span>
-    <span class="highlight-green">Enlighten Your Day!</span>
-  </h1>
-</section>
-
-<!-- Genre Filter Dropdown -->
-<div class="genre-filter">
-  <button id="genre-button">Filter by Genre</button>
-  <div id="genre-dropdown" class="dropdown-menu">
-    <a href="#" onclick="filterByGenre('28')">Action</a>
-    <a href="#" onclick="filterByGenre('35')">Comedy</a>
-    <a href="#" onclick="filterByGenre('18')">Drama</a>
-    <a href="#" onclick="filterByGenre('27')">Horror</a>
-    <a href="#" onclick="filterByGenre('878')">Science Fiction</a>
-    <a href="#" onclick="filterByGenre('10749')">Romance</a>
-    <a href="#" onclick="filterByGenre('12')">Adventure</a>
-  </div>
-</div>
-
-<!-- Optional: Theme Toggle Button -->
-<button id="theme-toggle">Toggle Theme</button>
-
-<!-- Movie Grid -->
-<section id="movie-grid" class="movie-grid"></section>
-
-<!-- Modal for Movie Details (ONLY ONCE) -->
-<div id="movie-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <img id="modal-poster" src="" alt="Poster">
-    <h2 id="modal-title"></h2>
-    <p id="modal-overview"></p>
-    <p><strong>Release Date:</strong> <span id="modal-date"></span></p>
-    <p><strong>Rating:</strong> <span id="modal-rating"></span></p>
-  </div>
-</div>
-
-<!-- Footer -->
-<footer>
-  <div class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h3>Useful links</h3>
-          <p>Get in touch with us and join us on this journey as we craft state-of-the-art software tools using the power of AI and algorithms.</p>
-          <a href="https://eatingbattle.vercel.app">Eating Contest</a><br>
-          <a href="https://motaungmandla.github.io">Dev Portfolio > Dev Work station</a>
-        </div>
-        <div class="col-md-4">
-          <h3>Find us</h3>
-          <ul class="location_icon">
-            <li><i class="fa fa-map-marker" aria-hidden="true"></i> We are located in Maseru, Lesotho<br>Roma 180</li>
-            <li><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+26656868951">(+266) 5686 8951</a><br><a href="tel:+26663973129">(+266) 6397 3129</a></li>
-            <li><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:zmmandla24@gmail.com">zmmandla24@gmail.com</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h3>News letter</h3>
-          <form class="news_form">
-            <input class="letter_form" placeholder="Enter your email" type="email" name="Email" required>
-            <button class="submit">Subscribe</button>
-          </form>
-          <ul class="social_icon">
-            <li><a href="https://www.facebook.com/profile.php?id=100022011589532"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/mandla-motaung-5b5a88329/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="copyright">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <p>© 2024 All Rights Reserved. Designed by <a href="https://motaungmandla.github.io/">Motaung inc</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- Disable Copying & Selection -->
-<style>
-body {
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-</style>
 
-<script>
-  document.addEventListener('copy', function(e) {
-    e.preventDefault();
-    alert("Copying is not allowed.");
-  });
+body {
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #eee;
+}
 
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-  });
-</script>
+/* Top Navigation */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  padding: 10px 20px;
+}
 
-<!-- Your Main JavaScript -->
-<script src="main_n.js"></script>
+.logo {
+  color: gold;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
 
-</body>
-</html>
+.searcher input[type="search"] {
+  padding: 6px;
+  width: 200px;
+  border-radius: 4px;
+  border: none;
+  margin-right: 10px;
+}
+
+.searcher button {
+  padding: 6px 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Main Menu */
+.main-menu-container {
+  background-color: #1a1a1a;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.main-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.main-menu li a {
+  text-decoration: none;
+  color: #ccc;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.main-menu li a:hover,
+.main-menu li a:focus {
+  background-color: #333;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  list-style: none;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.submenu li a:hover {
+  background-color: #eee;
+}
+
+.dropdown:hover .submenu {
+  display: block;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 20px;
+}
+
+.highlight-gold { color: gold; }
+.highlight-magenta { color: magenta; }
+.highlight-green { color: rgb(0, 255, 13); }
+
+/* Movie Grid */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.movie-card {
+  border: 1px solid #444;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  background-color: #1a1a1a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  background-color: #1a1a1a;
+  color: #eee;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+/* Footer */
+.footer {
+  background-color: #111;
+  color: #aaa;
+  padding: 30px 20px;
+  font-size: 0.95em;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+.footer-column h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin: 8px 0;
+}
+
+.footer-column a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  color: #fff;
+}
+
+.social_team i {
+  margin-right: 8px;
+}
+
+/* Light Mode Support */
+body.light-mode {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Genre Filter Dropdown */
+.genre-filter {
+  position: relative;
+  display: inline-block;
+}
+
+#genre-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-menu a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu a:hover {
+  background-color: #ddd;
+}
+
+#genre-button:focus + .dropdown-menu,
+#genre-button:hover + .dropdown-menu {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .dropdown-menu {
+    width: 100%;
+  }
+}
+
+/* Newsletter */
+.news_form {
+  display: flex;
+  align-items: center;
+}
+
+.letter_form {
+  padding: 10px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+.submit {
+  padding: 10px 20px;
+  background-color: #6c5ce7;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+  background-color: #5b4fae;
+}
+
+/* Social Icons */
+.social_icon {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social_icon li {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.social_icon li:hover {
+  background-color: #6c5ce7;
+  color: #fff;
+}
+
+.social_icon i {
+  font-size: 20px;
+}
+
+/* Copyright */
+.copyright {
+  background-color: #1a1a1a;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.copyright a {
+  color: #fff;
+  text-decoration: underline;
+}
