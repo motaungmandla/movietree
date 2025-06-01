@@ -358,3 +358,87 @@ body.light-mode {
   color: #fff;
   text-decoration: underline;
 }
+
+
+/* Footer Styling */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 40px 0;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.col-md-4 {
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.location_icon li {
+  margin-bottom: 10px;
+}
+
+.social_icon {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social_icon li a {
+  color: white;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.social_icon li a:hover {
+  color: #007BFF; /* Blue hover color */
+}
+
+.news_form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.submit {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+  background-color: #0056b3;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 20px;
+  color: #aaa;
+}
+
+.copyright a {
+  color: #fff;
+  text-decoration: underline;
+}
