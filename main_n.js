@@ -50,7 +50,9 @@ searchForm.addEventListener('submit', (e) => {
 // Show movie details in modal
 function showMovieDetails(movieId) {
     const detailsUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=cb59f014c8c0f6911728fff3e3b277f2`;
+    const videosUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=cb59f014c8c0f6911728fff3e3b277f2`;
 
+    // Fetch movie details
     fetch(detailsUrl)
         .then(res => res.json())
         .then(movie => {
@@ -60,14 +62,45 @@ function showMovieDetails(movieId) {
             const modalDate = document.getElementById('modal-date');
             const modalRating = document.getElementById('modal-rating');
             const modalPoster = document.getElementById('modal-poster');
+            const trailerContainer = document.getElementById('trailer-container');
 
+            // Basic Info
             modalTitle.innerText = movie.title;
             modalOverview.innerText = movie.overview || 'No overview available.';
             modalDate.innerText = movie.release_date || 'N/A';
             modalRating.innerText = movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A';
             modalPoster.src = imgPath + (movie.poster_path || '');
+            trailerContainer.innerHTML = 'Loading trailer...';
 
+            // Show the modal
             modal.style.display = 'block';
+
+            // Fetch trailer info
+            fetch(videosUrl)
+                .then(res => res.json())
+                .then(data => {
+                    const trailer = data.results.find(video =>
+                        video.type === "Trailer" && video.site === "YouTube"
+                    );
+
+                    if (trailer) {
+                        const youtubeUrl = `https://www.youtube.com/embed/${trailer.key}`;
+                        trailerContainer.innerHTML = `
+                            <iframe width="100%" height="315" 
+                              src="${youtubeUrl}" 
+                              frameborder="0" 
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                              allowfullscreen>
+                            </iframe>
+                        `;
+                    } else {
+                        trailerContainer.innerHTML = "<p>No trailer available.</p>";
+                    }
+                })
+                .catch(err => {
+                    trailerContainer.innerHTML = "<p>Error loading trailer.</p>";
+                    console.error('Trailer fetch failed:', err);
+                });
         })
         .catch(err => console.error('Error fetching movie details:', err));
 }
